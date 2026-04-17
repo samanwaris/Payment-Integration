@@ -1,0 +1,504 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "payment-gateway",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/payment/create-nonsnap": {
+      "post": {
+        "tags": [
+          "Payment"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NonSnap"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NonSnap"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/NonSnap"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/payment/settlement-nonsnap": {
+      "post": {
+        "tags": [
+          "Payment"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NonSnapSettlement"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NonSnapSettlement"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/NonSnapSettlement"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/payment/create-snap": {
+      "post": {
+        "tags": [
+          "Payment"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Snap"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Snap"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Snap"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/payment/settlement-snap": {
+      "post": {
+        "tags": [
+          "Payment"
+        ],
+        "parameters": [
+          {
+            "name": "X-SIGNATURE",
+            "in": "header",
+            "description": "Signature for request validation",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-TIMESTAMP",
+            "in": "header",
+            "description": "ISO8601 timestamp (yyyy-MM-ddTHH:mm:sszzz)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "2026-04-17T10:00:00+07:00"
+            }
+          },
+          {
+            "name": "X-PARTNER-ID",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-EXTERNAL-ID",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "CHANNEL-ID",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SnapSettlement"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SnapSettlement"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SnapSettlement"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AdditionalInfo": {
+        "type": "object",
+        "properties": {
+          "insertId": {
+            "type": "string",
+            "nullable": true
+          },
+          "tagId": {
+            "type": "string",
+            "nullable": true
+          },
+          "flagType": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "BillDescription": {
+        "type": "object",
+        "properties": {
+          "english": {
+            "type": "string",
+            "nullable": true
+          },
+          "indonesia": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "BillDetail": {
+        "type": "object",
+        "properties": {
+          "billDescription": {
+            "$ref": "#/components/schemas/BillDescription"
+          }
+        },
+        "additionalProperties": false
+      },
+      "NonSnap": {
+        "type": "object",
+        "properties": {
+          "chanelId": {
+            "type": "string",
+            "nullable": true
+          },
+          "serviceCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "partnerServiceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "subBankId": {
+            "type": "string",
+            "nullable": true
+          },
+          "customerNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "currency": {
+            "type": "string",
+            "nullable": true
+          },
+          "callbackUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "transactionNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "transactionAmount": {
+            "type": "number",
+            "format": "double"
+          },
+          "transactionDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "transactionExpire": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "customerAccount": {
+            "type": "string",
+            "nullable": true
+          },
+          "customerName": {
+            "type": "string",
+            "nullable": true
+          },
+          "customerEmail": {
+            "type": "string",
+            "nullable": true
+          },
+          "customerPhone": {
+            "type": "string",
+            "nullable": true
+          },
+          "virtualAccountExpiry": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "NonSnapSettlement": {
+        "type": "object",
+        "properties": {
+          "channelId": {
+            "type": "string",
+            "nullable": true
+          },
+          "currency": {
+            "type": "string",
+            "nullable": true
+          },
+          "transactionNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "transactionAmount": {
+            "type": "string",
+            "nullable": true
+          },
+          "transactionFee": {
+            "type": "string",
+            "nullable": true
+          },
+          "transactionDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "transactionStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "transactionMessage": {
+            "type": "string",
+            "nullable": true
+          },
+          "channelType": {
+            "type": "string",
+            "nullable": true
+          },
+          "flagType": {
+            "type": "string",
+            "nullable": true
+          },
+          "insertId": {
+            "type": "string",
+            "nullable": true
+          },
+          "customerAccount": {
+            "type": "string",
+            "nullable": true
+          },
+          "paymentReffId": {
+            "type": "string",
+            "nullable": true
+          },
+          "additionalData": {
+            "type": "string",
+            "nullable": true
+          },
+          "authCode": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PaidAmount": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "nullable": true
+          },
+          "currency": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Snap": {
+        "type": "object",
+        "properties": {
+          "xChannelId": {
+            "type": "string",
+            "nullable": true
+          },
+          "xPartnerId": {
+            "type": "string",
+            "nullable": true
+          },
+          "partnerServiceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "customerNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "virtualAccountNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "virtualAccountName": {
+            "type": "string",
+            "nullable": true
+          },
+          "virtualAccountEmail": {
+            "type": "string",
+            "nullable": true
+          },
+          "trxId": {
+            "type": "string",
+            "nullable": true
+          },
+          "totalAmount": {
+            "$ref": "#/components/schemas/TotalAmount"
+          },
+          "billDetails": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BillDetail"
+            },
+            "nullable": true
+          },
+          "expiredDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "additionalInfo": {
+            "type": "object",
+            "additionalProperties": { },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SnapSettlement": {
+        "type": "object",
+        "properties": {
+          "partnerServiceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "customerNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "virtualAccountNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "virtualAccountName": {
+            "type": "string",
+            "nullable": true
+          },
+          "channelCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "paymentRequestId": {
+            "type": "string",
+            "nullable": true
+          },
+          "trxDateTime": {
+            "type": "string",
+            "nullable": true
+          },
+          "trxId": {
+            "type": "string",
+            "nullable": true
+          },
+          "paidAmount": {
+            "$ref": "#/components/schemas/PaidAmount"
+          },
+          "referenceNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "flagAdvise": {
+            "type": "string",
+            "nullable": true
+          },
+          "additionalInfo": {
+            "$ref": "#/components/schemas/AdditionalInfo"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TotalAmount": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "nullable": true
+          },
+          "currency": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

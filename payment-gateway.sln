@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36518.9 d17.14
+VisualStudioVersion = 17.14.36518.9
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "payment-gateway", "payment-gateway\payment-gateway.csproj", "{4CD8F264-4383-4A74-826E-B5ECCE966CAA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "payment.api", "payment-gateway\payment.api.csproj", "{4CD8F264-4383-4A74-826E-B5ECCE966CAA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "payment-service", "payment-service\payment-service.csproj", "{2EA253AE-B407-46CE-BBD2-823022AC2CE7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "payment.service", "payment-service\payment.service.csproj", "{2EA253AE-B407-46CE-BBD2-823022AC2CE7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
