@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\PROJECT\\payment-gateway\\payment-gateway\\payment.api.csproj": {}
+    "D:\\PROJECT\\payment-gateway\\payment.api\\payment.api.csproj": {}
   },
   "projects": {
-    "D:\\PROJECT\\payment-gateway\\payment-gateway\\payment.api.csproj": {
+    "D:\\PROJECT\\payment-gateway\\payment.api\\payment.api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\PROJECT\\payment-gateway\\payment-gateway\\payment.api.csproj",
+        "projectUniqueName": "D:\\PROJECT\\payment-gateway\\payment.api\\payment.api.csproj",
         "projectName": "payment.api",
-        "projectPath": "D:\\PROJECT\\payment-gateway\\payment-gateway\\payment.api.csproj",
+        "projectPath": "D:\\PROJECT\\payment-gateway\\payment.api\\payment.api.csproj",
         "packagesPath": "C:\\Users\\syamsul.anwar\\.nuget\\packages\\",
-        "outputPath": "D:\\PROJECT\\payment-gateway\\payment-gateway\\obj\\",
+        "outputPath": "D:\\PROJECT\\payment-gateway\\payment.api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,8 +32,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\PROJECT\\payment-gateway\\payment-service\\payment.service.csproj": {
-                "projectPath": "D:\\PROJECT\\payment-gateway\\payment-service\\payment.service.csproj"
+              "D:\\PROJECT\\payment-gateway\\payment.service\\payment.service.csproj": {
+                "projectPath": "D:\\PROJECT\\payment-gateway\\payment.service\\payment.service.csproj"
               }
             }
           }
@@ -86,14 +86,14 @@
         }
       }
     },
-    "D:\\PROJECT\\payment-gateway\\payment-service\\payment.service.csproj": {
+    "D:\\PROJECT\\payment-gateway\\payment.service\\payment.service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\PROJECT\\payment-gateway\\payment-service\\payment.service.csproj",
+        "projectUniqueName": "D:\\PROJECT\\payment-gateway\\payment.service\\payment.service.csproj",
         "projectName": "payment.service",
-        "projectPath": "D:\\PROJECT\\payment-gateway\\payment-service\\payment.service.csproj",
+        "projectPath": "D:\\PROJECT\\payment-gateway\\payment.service\\payment.service.csproj",
         "packagesPath": "C:\\Users\\syamsul.anwar\\.nuget\\packages\\",
-        "outputPath": "D:\\PROJECT\\payment-gateway\\payment-service\\obj\\",
+        "outputPath": "D:\\PROJECT\\payment-gateway\\payment.service\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
