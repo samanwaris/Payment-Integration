@@ -3,8 +3,8 @@ Payment Gateway SNAP and NON SNAP Integration (.NET)
 
 ## 📌 Overview
 
-Project ini adalah implementasi Payment Gateway API berbasis ASP.NET Core yang terintegrasi dengan standar SNAP (Standar Nasional Open API Pembayaran)
-dan pembayaran NON SNAP secara umum.
+Project ini adalah implementasi **Payment Gateway API berbasis ASP.NET Core** yang terintegrasi dengan standar **SNAP (Standar Nasional Open API Pembayaran)**
+dan pembayaran **NON SNAP** secara umum.
 
 Project ini menggunakan pendekatan **Multi-Layer Architecture**:
 * `payment_gateway` → API Layer (Controller, Filter, Attribute)
