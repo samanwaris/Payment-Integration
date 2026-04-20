@@ -5,6 +5,8 @@
         public string SecretKey { get; set; }
         public BaseUrlConfig BaseUrl { get; set; }
         public PaymnentEndpoints Endpoints { get; set; }
+        public string PrivateKeyPath { get; set; }
+        public string PublicKeyPath { get; set; }
     }
 
     public class BaseUrlConfig

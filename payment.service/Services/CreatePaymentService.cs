@@ -80,7 +80,7 @@ namespace payment_service.Services
                 string relativeUrl = _paymentSettings.Endpoints.CreateVA;
                 CreatePaymentResponse.Snap snapResponse = new CreatePaymentResponse.Snap();
 
-                var rsa = SignatureHelper.LoadPrivateKey(@"your private key"); // SHA256 private key
+                var rsa = SignatureHelper.LoadPrivateKey(@"" + _paymentSettings.PrivateKeyPath); // SHA256 private key
 
                 string xTimeStamp = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz");
                 string externalId = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds().ToString();
@@ -201,7 +201,7 @@ namespace payment_service.Services
                 new LoggingHelper().AppendTextFunction("PaymentSettlementSnapAsync", $"minifyRequest {minifyRequest}");
 
                 string bodyHash = SignatureHelper.HashSha256(minifyRequest).ToLower();
-                var rsaPublic = SignatureHelper.LoadPublicKey(@"your public key"); //SHA256 public Key
+                var rsaPublic = SignatureHelper.LoadPublicKey(@"" + _paymentSettings.PublicKeyPath); //SHA256 public Key
                 string stringToSign = SignatureHelper.StringToSign(method, endpoint, minifyRequest, header.Timestamp);
                 new LoggingHelper().AppendTextFunction("PaymentSettlementSnapAsync", $"stringToSign {stringToSign}");
 
