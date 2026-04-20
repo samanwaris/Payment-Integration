@@ -14,7 +14,7 @@ Project ini menggunakan pendekatan **Multi-Layer Architecture**:
 ```
 payment-gateway/
 │
-├── payment_gateway/        # API Layer
+├── payment.api/        # API Layer
 │   ├── Controllers/
 │   ├── Attributes/
 │   ├── Filters/
@@ -22,7 +22,7 @@ payment-gateway/
 │   ├── appsettings.json
 │   └── payment-gateway.http
 │
-├── payment-service/        # Business Logic Layer
+├── payment.service/        # Business Logic Layer
 │   ├── Interfaces/
 │   ├── Services/
 │   ├── Models/
@@ -56,7 +56,9 @@ Gunakan `appsettings.json` sebagai template untuk secretkey, url dan endpoint ke
     "Register": "",
     "CreateVA": "",
     "Payment": ""
-  }
+  },
+    "PrivateKeyPath": "",
+    "PublicKeyPath": ""
 ```
 
 ## 🔐 SNAP Required Headers
